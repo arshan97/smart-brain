@@ -28,7 +28,7 @@ class Register extends React.Component {
     const url = "https://warm-castle-11378.herokuapp.com/register";
     fetch(url, {
       method: "POST",
-      mode: "cors",
+      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: this.state.name,
