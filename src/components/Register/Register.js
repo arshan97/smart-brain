@@ -24,9 +24,9 @@ class Register extends React.Component {
   };
 
   onSubmit = () => {
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    
     const url = "https://warm-castle-11378.herokuapp.com/register";
-    fetch(proxyUrl + url, {
+    fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
