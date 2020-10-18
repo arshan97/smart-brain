@@ -18,7 +18,9 @@ class SignIn extends React.Component {
   };
 
   onSubmit = () => {
-    fetch("https://warm-castle-11378.herokuapp.com/signin", {
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const url = "https://warm-castle-11378.herokuapp.com/image";
+    fetch(proxyUrl + url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

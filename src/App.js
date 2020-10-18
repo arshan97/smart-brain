@@ -66,7 +66,10 @@ class App extends React.Component {
   onSubmit = () => {
     this.setState({ imageUrl: this.state.input });
 
-    fetch("https://warm-castle-11378.herokuapp.com/image", {
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const url = "https://warm-castle-11378.herokuapp.com/image";
+
+    fetch(proxyUrl + url, {
       method: "put",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: this.state.user.id }),
