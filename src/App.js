@@ -71,6 +71,7 @@ class App extends React.Component {
 
     fetch(url, {
       method: "put",
+      mode: "cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: this.state.user.id }),
     })

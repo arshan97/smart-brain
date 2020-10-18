@@ -22,6 +22,7 @@ class SignIn extends React.Component {
     const url = "https://warm-castle-11378.herokuapp.com/signin";
     fetch(url, {
       method: "POST",
+      mode: "cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: this.state.email,
