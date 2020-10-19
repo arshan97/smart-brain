@@ -1,9 +1,9 @@
 import React from "react";
-const axios = require('axios');
+
 
 class Register extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: "",
@@ -25,18 +25,24 @@ class Register extends React.Component {
   };
 
   onSubmit = () => {
-    axios.post("https://fathomless-dusk-60206.herokuapp.com/register", {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password
+    fetch("https://smart-brain-database.herokuapp.com/register", {
+      method: 'POST',
+      headers: {
+    'Content-Type': 'application/json'
+  },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+      })
     })
-      .then((response) => {
-        console.log(response);
-        // if (user.id) {
-        //   this.props.onRouteChange("home");
-        //   this.props.loadUser(user);
-        // }
-      }).catch(e => console.log(e));
+      .then((response) => response.json()
+      ).then((user) => {
+        if (user.id) {
+          this.props.loadUser(user);
+          this.props.onRouteChange("home");
+        }
+      });
   };
 
   render() {
