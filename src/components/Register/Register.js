@@ -24,8 +24,9 @@ class Register extends React.Component {
   };
 
   onSubmit = () => {
-     fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
-      method: 'post',
+    fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
+       crossDomain:true,
+      method: 'POST',
       headers: {
     'Content-Type': 'application/json'
   },
