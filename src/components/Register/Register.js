@@ -23,8 +23,8 @@ class Register extends React.Component {
     this.setState({ password: e.target.value });
   };
 
-  onSubmit = async () => {
-    await fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
+  onSubmit = () => {
+     fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
       method: 'post',
       headers: {
     'Content-Type': 'application/json'
@@ -39,7 +39,8 @@ class Register extends React.Component {
         console.log(response);
         return response.json()
       })
-      .then((user) => {
+       .then((user) => {
+         console.log(user);
         if (user.id) {
           this.props.onRouteChange("home");
           this.props.loadUser(user);
