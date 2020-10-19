@@ -25,20 +25,26 @@ class Register extends React.Component {
 
   onSubmit = () => {
     fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
-      method: "post",
+      method: 'post',
       mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
       })
     })
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        return response.json()
+      })
       .then((user) => {
         if (user.id) {
-          this.props.loadUser(user);
           this.props.onRouteChange("home");
+          this.props.loadUser(user);
         }
       });
   };
