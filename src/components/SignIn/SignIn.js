@@ -18,9 +18,7 @@ class SignIn extends React.Component {
   };
 
   onSubmit = () => {
-    
-    const url = "https://warm-castle-11378.herokuapp.com/signin";
-    fetch(url, {
+    fetch("https://warm-castle-11378.herokuapp.com/signin", {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },

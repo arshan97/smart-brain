@@ -65,11 +65,7 @@ class App extends React.Component {
 
   onSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-
-    
-    const url = "https://warm-castle-11378.herokuapp.com/image";
-
-    fetch(url, {
+    fetch("https://warm-castle-11378.herokuapp.com/image", {
       method: "put",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
@@ -79,7 +75,6 @@ class App extends React.Component {
       .then((entries) =>
         this.setState(Object.assign(this.state.user, { entries: entries }))
       );
-    console.log(this.state);
     app.models
       .predict("e466caa0619f444ab97497640cefc4dc", this.state.input)
       .then((response) =>
