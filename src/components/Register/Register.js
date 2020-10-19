@@ -24,7 +24,7 @@ class Register extends React.Component {
   };
 
   onSubmit = () => {
-    return fetch("https://warm-castle-11378.herokuapp.com/register", {
+    return fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
