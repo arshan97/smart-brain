@@ -23,8 +23,8 @@ class Register extends React.Component {
     this.setState({ password: e.target.value });
   };
 
-  onSubmit = () => {
-    fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
+  onSubmit = async () => {
+    await fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
       method: 'post',
       headers: {
     'Content-Type': 'application/json'
