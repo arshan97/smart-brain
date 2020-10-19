@@ -24,8 +24,9 @@ class Register extends React.Component {
   };
 
   onSubmit = () => {
-    fetch("https://warm-castle-11378.herokuapp.com/register", {
+    return fetch("https://warm-castle-11378.herokuapp.com/register", {
       method: "POST",
+      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: this.state.name,
@@ -33,7 +34,7 @@ class Register extends React.Component {
         password: this.state.password,
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {return response.json()})
       .then((user) => {
         if (user) {
           this.props.onRouteChange("home");
