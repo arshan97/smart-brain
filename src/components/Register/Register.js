@@ -27,20 +27,20 @@ class Register extends React.Component {
     
     const url = "https://warm-castle-11378.herokuapp.com/register";
     fetch(url, {
-      method: "POST",
+      method: "post",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
-      }),
+      })
     })
       .then(response => response.json())
       .then(user => {
-        if (user) {
-          this.props.onRouteChange("home")
+        if (user.id) {
           this.props.loadUser(user);
+          this.props.onRouteChange("home")
         }
       });
   };
