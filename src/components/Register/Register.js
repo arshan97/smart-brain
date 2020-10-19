@@ -1,4 +1,5 @@
 import React from "react";
+const axios = require('axios');
 
 class Register extends React.Component {
   constructor() {
@@ -24,30 +25,18 @@ class Register extends React.Component {
   };
 
   onSubmit = () => {
-    fetch("https://fathomless-dusk-60206.herokuapp.com/register", {
-      crossDomain: true,
-      mode: "cors",
-      method: 'POST',
-      headers: {
-    'Content-Type': 'application/json'
-  },
-      body: JSON.stringify({
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password,
-      })
+    axios.post("https://fathomless-dusk-60206.herokuapp.com/register", {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password
     })
       .then((response) => {
         console.log(response);
-        return response.json()
+        // if (user.id) {
+        //   this.props.onRouteChange("home");
+        //   this.props.loadUser(user);
+        // }
       })
-       .then((user) => {
-         console.log(user);
-        if (user.id) {
-          this.props.onRouteChange("home");
-          this.props.loadUser(user);
-        }
-      });
   };
 
   render() {
