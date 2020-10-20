@@ -20,18 +20,17 @@ class SignIn extends React.Component {
   onSubmit = () => {
     fetch("https://smart-brain-database.herokuapp.com/signin", {
       method: "post",
-      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: this.state.email,
         password: this.state.password,
-      }),
+      })
     })
       .then((response) => response.json())
       .then((data) => {
         if (data.id) {
-          this.props.onRouteChange("home");
           this.props.loadUser(data);
+          this.props.onRouteChange("home"); 
         }
       });
   };
