@@ -9,7 +9,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
         <Tilt
           className="Tilt"
           options={{ max: 55 }}
-          style={{ height: 150, width: 150 }}
+          style={{ height: 200, width: 200 }}
         >
           <div className="Tilt-inner pa3">
             <img src={brain} alt="logo"></img>
